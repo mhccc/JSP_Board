@@ -5,11 +5,45 @@
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
     version="3.1">
     
+    
+    <!-- DataSource -->
     <resource-ref>
-	    <description>DB Connection</description>
+	    <description>DBConnection</description>
 	    <res-ref-name>jdbc/mysql</res-ref-name>
 	    <res-type>javax.sql.DataSource</res-type>
 	    <res-auth>Container</res-auth>
   	</resource-ref>
+  	
+  	
+	<!-- Servlet -->
+	<servlet>
+		<servlet-name>MemberController</servlet-name>
+		<servlet-class>member.controller.MemberController</servlet-class>
+		<init-param>
+			<param-name>configFile</param-name>
+			<param-value>/WEB-INF/config/memberCommandHandler.properties</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MemberController</servlet-name>
+		<url-pattern>/member/*</url-pattern>
+	</servlet-mapping>
+  	
+  	
+  	<!-- Filter -->
+  	<filter>
+    	<filter-name>EncodingFilter</filter-name>
+    	<filter-class>util.CharacterEncodingFilter</filter-class>
+    	<init-param>
+    		<param-name>encoding</param-name>
+    		<param-value>utf-8</param-value>
+    	</init-param>
+    </filter>
+    <filter-mapping>
+    	<filter-name>EncodingFilter</filter-name>
+    	<url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
     
 </web-app>
