@@ -29,6 +29,15 @@
 		<servlet-name>MemberController</servlet-name>
 		<url-pattern>/member/*</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>JoinCheckServlet</servlet-name>
+		<servlet-class>member.controller.JoinCheckServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>JoinCheckServlet</servlet-name>
+		<url-pattern>/member/JoinCheck.do</url-pattern>
+	</servlet-mapping>
   	
   	
   	<!-- Filter -->

@@ -33,4 +33,21 @@ public class JoinService {
 		}
 	}
 	
+	public String joinCheck(String userid) {
+		Connection conn = null;
+		String result = "success";
+		try {
+			conn = ConnectionProvider.getConnection();
+			MemberDTO member = memberDAO.selectById(conn, userid);
+			if (member != null) {
+				result = "duplicate";
+			}
+			return result;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			JdbcUtil.close(conn);
+		}
+	}
+	
 }
