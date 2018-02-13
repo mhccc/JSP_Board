@@ -35,14 +35,14 @@ public class MemberDAO {
 		}
 	}
 	
-	public MemberDTO selectById(Connection conn, String userid) throws SQLException {
+	public MemberDTO selectById(Connection conn, String mem_userid) throws SQLException {
 		MemberDTO member = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
 		try {
 			pstmt = conn.prepareStatement("select * from tbl_member where mem_userid = ?");
-			pstmt.setString(1, userid);
+			pstmt.setString(1, mem_userid);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				member = new MemberDTO(

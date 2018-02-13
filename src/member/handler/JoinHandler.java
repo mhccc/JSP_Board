@@ -1,4 +1,4 @@
-package member.controller;
+package member.handler;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,10 +31,10 @@ public class JoinHandler implements MemberCommandHandler {
 
 	private String processSubmit(HttpServletRequest request, HttpServletResponse response) {
 		MemberDTO member = new MemberDTO();
-		member.setMem_userid(request.getParameter("userid"));
-		member.setMem_password(request.getParameter("password"));
-		member.setMem_username(request.getParameter("username"));
-		member.setMem_email(request.getParameter("email"));
+		member.setMem_userid(request.getParameter("mem_userid"));
+		member.setMem_password(request.getParameter("mem_password"));
+		member.setMem_username(request.getParameter("mem_username"));
+		member.setMem_email(request.getParameter("mem_email"));
 		
 		joinService.join(member);
 		return "/WEB-INF/views/member/joinSuccess.jsp";

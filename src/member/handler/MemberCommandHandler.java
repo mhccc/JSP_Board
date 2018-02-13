@@ -1,4 +1,4 @@
-package member.controller;
+package member.handler;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

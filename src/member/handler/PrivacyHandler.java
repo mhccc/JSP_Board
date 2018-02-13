@@ -1,4 +1,4 @@
-package member.controller;
+package member.handler;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,7 +8,7 @@ import member.service.PrivacyService;
 
 public class PrivacyHandler implements MemberCommandHandler {
 	
-	private static final String VIEW = "/WEB-INF/views/member/privacy.jsp";
+	private static final String VIEW = "/WEB-INF/views/member/privacyForm.jsp";
 	private PrivacyService privacyService = PrivacyService.getInstance();
 
 	@Override

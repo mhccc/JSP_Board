@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>JSP_Board</title>
+  <title>JSP_Board | Sign up</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -39,7 +39,7 @@
     <form action="join.do" method="post" onsubmit="return checkForm();">
       <div class="form-group has-feedback">
       	<label class="control-label" for="userid">UserID</label>
-        <input type="text" id="userid" name="userid" class="form-control" maxlength="15" required autofocus>
+        <input type="text" id="userid" name="mem_userid" class="form-control" maxlength="15" required autofocus>
         <span class="form-control-feedback" id="useridFeedback"></span>
         <div>
           	<h6 style="color:red;" id="useridCheckMessage"></h6>
@@ -47,7 +47,7 @@
       </div>
       <div class="form-group has-feedback">
       	<label class="control-label" for="password">Password</label>
-        <input type="password" id="password" name="password" class="form-control" maxlength="10" required>
+        <input type="password" id="password" name="mem_password" class="form-control" maxlength="15" required>
         <span class="form-control-feedback" id="passwordFeedback"></span>
         <div>
           	<h6 style="color:red;" id="passwordCheckMessage"></h6>
@@ -55,12 +55,12 @@
       </div>
       <div class="form-group has-feedback">
       	<label class="control-label" for="username">Name</label>
-        <input type="text" id="username" name="username" class="form-control" maxlength="15" required>
+        <input type="text" id="username" name="mem_username" class="form-control" maxlength="15" required>
         <span class="form-control-feedback" id="usernameFeedback"></span>
       </div>
       <div class="form-group has-feedback">
       	<label class="control-label" for="email">Email</label>
-        <input type="email" id="email" name="email" class="form-control" maxlength="30" required>
+        <input type="email" id="email" name="mem_email" class="form-control" maxlength="30" required>
         <span class="form-control-feedback" id="emailFeedback"></span>
       </div>
       <div class="row">
@@ -87,7 +87,7 @@
       <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up using Facebook</a>
     </div>
 
-    <a href="login.html" class="text-center">I already have a membership</a>
+    <a href="login.do" class="text-center">I already have a membership</a>
   </div>
   <!-- /.form-box -->
 </div>

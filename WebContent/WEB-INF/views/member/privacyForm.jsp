@@ -8,5 +8,7 @@
 		이메일 : ${member.mem_email} <br>
 		가입일 : ${member.mem_regdate} <br>
 	</table>
+	
+	<!-- 회원정보 수정하기 만들어서 privacy.do로 POST 요청하기 -->
 
 <%@ include file="../include/footer.jsp" %>
