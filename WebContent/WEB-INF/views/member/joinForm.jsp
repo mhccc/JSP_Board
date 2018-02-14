@@ -16,7 +16,7 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="../resources/dist/css/AdminLTE.min.css">
   <!-- iCheck -->
-  <link rel="stylesheet" href="../resources/plugins/iCheck/square/blue.css">
+  <link rel="stylesheet" href="../resources/plugins/iCheck/square/blue.css">  
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -32,9 +32,8 @@
 
 <div class="register-box">
   <div class="register-logo">
-    <a href="../resources/index2.html"><b>JSP_Board</b></a>
+    <a href="${pageContext.request.contextPath}/index.jsp"><b>JSP_Board</b></a>
   </div>
-
   <div class="register-box-body">
     <form action="join.do" method="post" onsubmit="return checkForm();">
       <div class="form-group has-feedback">

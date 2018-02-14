@@ -43,7 +43,7 @@ public class LoginHandler implements MemberCommandHandler {
 		
 		try {
 			User user = loginService.login(mem_userid, mem_password);
-			request.setAttribute("authUser", user);
+			request.getSession().setAttribute("authUser", user);
 			response.sendRedirect(request.getContextPath() + "/index.jsp");
 			return null;
 		} catch (InvalidUseridException e) {

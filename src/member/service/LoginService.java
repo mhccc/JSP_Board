@@ -29,7 +29,7 @@ public class LoginService {
 				throw new InvalidPasswordException();
 			}
 			
-			return new User(member.getMem_userid(), member.getMem_username());
+			return new User(member.getMem_userid(), member.getMem_username(), member.getMem_regdate());
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);

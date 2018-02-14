@@ -29,7 +29,7 @@ public class JoinHandler implements MemberCommandHandler {
 		return VIEW;
 	}
 
-	private String processSubmit(HttpServletRequest request, HttpServletResponse response) {
+	private String processSubmit(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		MemberDTO member = new MemberDTO();
 		member.setMem_userid(request.getParameter("mem_userid"));
 		member.setMem_password(request.getParameter("mem_password"));
@@ -37,7 +37,8 @@ public class JoinHandler implements MemberCommandHandler {
 		member.setMem_email(request.getParameter("mem_email"));
 		
 		joinService.join(member);
-		return "/WEB-INF/views/member/joinSuccess.jsp";
+		response.sendRedirect(request.getContextPath() + "/index.jsp");
+		return null;
 	}
 	
 }

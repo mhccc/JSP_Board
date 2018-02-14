@@ -54,5 +54,15 @@
     	<url-pattern>/*</url-pattern>
     </filter-mapping>
     
+    <filter>
+    	<filter-name>LoginCheckFilter</filter-name>
+    	<filter-class>util.LoginCheckFilter</filter-class>
+    </filter>
+    <filter-mapping>
+    	<filter-name>LoginCheckFilter</filter-name>
+    	<url-pattern>/member/privacy.do</url-pattern>
+    	<url-pattern>/board/*</url-pattern>
+    </filter-mapping>
+    
     
 </web-app>

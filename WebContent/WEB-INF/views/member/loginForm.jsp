@@ -32,7 +32,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../resources/index2.html"><b>JSP_Board</b></a>
+    <a href="${pageContext.request.contextPath}/index.jsp"><b>JSP_Board</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">

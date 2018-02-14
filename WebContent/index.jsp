@@ -43,7 +43,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="${pageContext.request.contextPath}/index.jsp" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>JSP</b></span>
       <!-- logo for regular state and mobile devices -->
@@ -60,52 +60,46 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-        
-          <!-- User Account Menu -->
-          <li class="dropdown user user-menu">
-            <!-- Menu Toggle Button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <!-- The user image in the navbar-->
-              <img src="./resources/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Alexander Pierce</span>
-            </a>
-            <ul class="dropdown-menu">
-              <!-- The user image in the menu -->
-              <li class="user-header">
-                <img src="./resources/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-
-                <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
-                </p>
+          <c:if test="${!empty authUser}">
+              <!-- User Account Menu -->
+	          <li class="dropdown user user-menu">
+	            <!-- Menu Toggle Button -->
+	            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+	              <!-- The user image in the navbar-->
+	              <img src="./resources/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+	              <!-- hidden-xs hides the username on small devices so only the image appears. -->
+	              <span class="hidden-xs">${authUser.mem_userid}</span>
+	            </a>
+	            <ul class="dropdown-menu">
+	              <!-- The user image in the menu -->
+	              <li class="user-header">
+	                <img src="./resources/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+	
+	                <p>
+	                  ${authUser.mem_userid} - Web Developer
+	                  <small>Member since ${authUser.mem_regdate}</small>
+	                </p>
+	              </li>
+	              <!-- Menu Footer-->
+	              <li class="user-footer">
+	                <div class="pull-left">
+	                  <a href="member/privacy.do" class="btn btn-default btn-flat">Profile</a>
+	                </div>
+	                <div class="pull-right">
+	                  <a href="member/logout.do" class="btn btn-default btn-flat">Sign out</a>
+	                </div>
+	              </li>
+	            </ul>
+	          </li>
+          </c:if>
+          <c:if test="${empty authUser}">
+              <li>
+                  <a href="member/login.do">Sign in</a>
               </li>
-              <!-- Menu Body -->
-              <li class="user-body">
-                <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
-                </div>
-                <!-- /.row -->
+              <li>
+                  <a href="member/join.do">Sign up</a>
               </li>
-              <!-- Menu Footer-->
-              <li class="user-footer">
-                <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
-                </div>
-                <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                </div>
-              </li>
-            </ul>
-          </li>
+          </c:if>
           
         </ul>
       </div>
@@ -132,56 +126,44 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
-        <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#">Link in level 2</a></li>
-            <li><a href="#">Link in level 2</a></li>
-          </ul>
-        </li>
+        <!-- 만약 Board 페이지라면 class="active"를 li태그에 추가해야 함 -->
+        <li><a href="#"><i class="fa fa-link"></i> <span>Board</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
   </aside>
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Page Header
-        <small>Optional description</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
-      </ol>
-    </section>
-
-    <!-- Main content -->
-    <section class="content container-fluid">
-
-		메인 페이지
-
-	</section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+	  <!-- Content Wrapper. Contains page content -->
+	  <div class="content-wrapper">
+	    <!-- Content Header (Page header) -->
+	    <section class="content-header">
+	      <h1>
+	        Page Header
+	        <small>Optional description</small>
+	      </h1>
+	      <ol class="breadcrumb">
+	        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+	        <li class="active">Here</li>
+	      </ol>
+	    </section>
+	
+	    <!-- Main content -->
+	    <section class="content container-fluid">
+	
+			메인 페이지
+	
+		</section>
+	    <!-- /.content -->
+	  </div>
+	  <!-- /.content-wrapper -->
 
   <!-- Main Footer -->
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Anything you want
+      mccc
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
