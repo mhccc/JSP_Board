@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html">
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -23,6 +25,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
   <link rel="stylesheet" href="../resources/dist/css/skins/skin-blue.min.css">
+  
+  <link rel="stylesheet" href="../resources/css/custom.css">
+  
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -129,7 +134,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <ul class="sidebar-menu" data-widget="tree">
         <!-- Optionally, you can add icons to the links -->
         <!-- 만약 Board 페이지라면 class="active"를 li태그에 추가해야 함 -->
-        <li><a href="#"><i class="fa fa-link"></i> <span>Board</span></a></li>
+        <li><a href="${pageContext.request.contextPath}/article/list.do"><i class="fa fa-link"></i> <span>Board</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

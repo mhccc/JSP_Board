@@ -39,6 +39,19 @@
 		<url-pattern>/member/JoinCheck.do</url-pattern>
 	</servlet-mapping>
   	
+  	<servlet>
+		<servlet-name>ArticleController</servlet-name>
+		<servlet-class>article.controller.ArticleController</servlet-class>
+		<init-param>
+			<param-name>configFile</param-name>
+			<param-value>/WEB-INF/config/articleCommandHandler.properties</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ArticleController</servlet-name>
+		<url-pattern>/article/*</url-pattern>
+	</servlet-mapping>
   	
   	<!-- Filter -->
   	<filter>
@@ -61,7 +74,7 @@
     <filter-mapping>
     	<filter-name>LoginCheckFilter</filter-name>
     	<url-pattern>/member/privacy.do</url-pattern>
-    	<url-pattern>/board/*</url-pattern>
+    	<url-pattern>/article/*</url-pattern>
     </filter-mapping>
     
     

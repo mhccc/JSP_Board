@@ -119,7 +119,6 @@
 		  $('#useridCheckMessage').html('5자 이상 입력해주세요.');
 	  } else {
 		  var userid = $('#userid').val();
-		  console.log(userid);
 		  $.ajax({
 			  type: 'POST',
 			  url: 'JoinCheck.do',

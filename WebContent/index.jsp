@@ -23,6 +23,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
   <link rel="stylesheet" href="./resources/dist/css/skins/skin-blue.min.css">
+  
+  <link rel="stylesheet" href="./resources/css/custom.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -32,8 +34,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <![endif]-->
 
   <!-- Google Font -->
-  <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -128,7 +129,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <ul class="sidebar-menu" data-widget="tree">
         <!-- Optionally, you can add icons to the links -->
         <!-- 만약 Board 페이지라면 class="active"를 li태그에 추가해야 함 -->
-        <li><a href="#"><i class="fa fa-link"></i> <span>Board</span></a></li>
+        <li><a href="${pageContext.request.contextPath}/article/list.do"><i class="fa fa-link"></i> <span>Board</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -137,22 +138,36 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 	  <!-- Content Wrapper. Contains page content -->
 	  <div class="content-wrapper">
-	    <!-- Content Header (Page header) -->
-	    <section class="content-header">
-	      <h1>
-	        Page Header
-	        <small>Optional description</small>
-	      </h1>
-	      <ol class="breadcrumb">
-	        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-	        <li class="active">Here</li>
-	      </ol>
-	    </section>
 	
 	    <!-- Main content -->
 	    <section class="content container-fluid">
-	
-			메인 페이지
+	    
+	    	<div class="jumbotron">
+			  <h1>Welcome to JSP_Board</h1>
+			  <p>JSP board implemented with MVC pattern</p>
+			  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+			</div>
+			
+			<div class="container">
+		      <!-- Example row of columns -->
+		      <div class="row">
+		        <div class="col-md-4">
+		          <h2>Heading</h2>
+		          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+		          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+		        </div>
+		        <div class="col-md-4">
+		          <h2>Heading</h2>
+		          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+		          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+		       </div>
+		        <div class="col-md-4">
+		          <h2>Heading</h2>
+		          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+		          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+		        </div>
+		      </div>
+		    </div> <!-- /container -->
 	
 		</section>
 	    <!-- /.content -->

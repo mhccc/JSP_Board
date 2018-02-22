@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import jdbc.ConnectionProvider;
 import jdbc.JdbcUtil;
 import member.dao.MemberDAO;
-import member.model.MemberDTO;
+import member.dto.MemberDTO;
 
 public class JoinService {
 

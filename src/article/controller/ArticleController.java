@@ -1,4 +1,4 @@
-package member.controller;
+package article.controller;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -14,12 +14,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import member.command.MemberCommandHandler;
-import member.command.NullHandler;
+import article.command.ArticleCommandHandler;
+import article.command.NullHandler;
 
-public class MemberController extends HttpServlet {
+public class ArticleController extends HttpServlet {
 	
-	private Map<String, MemberCommandHandler> commandHandlerMap = new HashMap<>();
+	private Map<String, ArticleCommandHandler> commandHandlerMap = new HashMap<>();
 	
 	public void init() throws ServletException {
 		String configFile = getInitParameter("configFile");
@@ -42,7 +42,7 @@ public class MemberController extends HttpServlet {
 			
 			try {
 				Class<?> handlerClass = Class.forName(handlerClassName);
-				MemberCommandHandler handlerInstance = (MemberCommandHandler) handlerClass.newInstance();
+				ArticleCommandHandler handlerInstance = (ArticleCommandHandler) handlerClass.newInstance();
 				commandHandlerMap.put(command, handlerInstance);
 			} catch (ClassNotFoundException e) {
 				throw new ServletException(e);
@@ -63,7 +63,7 @@ public class MemberController extends HttpServlet {
 	}
 	
 	private void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		MemberCommandHandler handler = null;
+		ArticleCommandHandler handler = null;
 		String viewPage = null;
 		
 		String command = request.getRequestURI();

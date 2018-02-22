@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import jdbc.JdbcUtil;
-import member.model.MemberDTO;
+import member.dto.MemberDTO;
 
 public class MemberDAO {
 
