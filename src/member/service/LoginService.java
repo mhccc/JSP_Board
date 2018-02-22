@@ -13,7 +13,6 @@ public class LoginService {
 	public static LoginService getInstance() {
 		return instance;
 	}
-	
 	private LoginService() {
 		
 	}

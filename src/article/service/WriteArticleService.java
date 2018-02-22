@@ -15,7 +15,6 @@ public class WriteArticleService {
 	public static WriteArticleService getInstance() {
 		return instance;
 	}
-	
 	private WriteArticleService() {
 		
 	}

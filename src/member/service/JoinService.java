@@ -14,7 +14,6 @@ public class JoinService {
 	public static JoinService getInstance() {
 		return instance;
 	}
-	
 	private JoinService() {
 		
 	}

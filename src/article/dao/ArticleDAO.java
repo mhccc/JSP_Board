@@ -19,7 +19,6 @@ public class ArticleDAO {
 	public static ArticleDAO getInstance() {
 		return instance;
 	}
-	
 	private ArticleDAO() {
 		
 	}
@@ -97,13 +96,44 @@ public class ArticleDAO {
 		}
 	}
 	
+	private Date toDate(Timestamp timestamp) {
+		return new Date(timestamp.getTime());
+	}
+	
+	public ArticleDTO selectByNo(Connection conn, int article_no) throws SQLException {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			pstmt = conn.prepareStatement("select * from tbl_article where article_no = ?");
+			pstmt.setInt(1, article_no);
+			rs = pstmt.executeQuery();
+			ArticleDTO article = null;
+			if (rs.next()) {
+				article = convertArticle(rs);
+			}
+			return article;
+		} finally { 
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+	}
+	
 	private ArticleDTO convertArticle(ResultSet rs) throws SQLException {
 		return new ArticleDTO(rs.getInt("article_no"), rs.getString("article_writer"), rs.getString("article_title"), toDate(rs.getTimestamp("article_regdate")),
 				rs.getInt("article_readcount"), rs.getString("article_content"));
 	}
 	
-	private Date toDate(Timestamp timestamp) {
-		return new Date(timestamp.getTime());
+	public void increaseReadCount(Connection conn, int article_no) throws SQLException {
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement("update tbl_article set article_readcount = article_readcount + 1 where article_no = ?");
+			pstmt.setInt(1, article_no);
+			pstmt.executeUpdate();
+		} finally {
+			JdbcUtil.close(pstmt);
+		}
 	}
 	
 }

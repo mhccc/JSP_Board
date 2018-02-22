@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="../include/header.jsp" %>
 
@@ -28,13 +27,13 @@
 						<div class="box box-info">
 						
 							<div class="box-body pad">
-								<table class="table table-bordered">
+								<table class="table table-bordered text-center">
 									<tr>
 										<th style="width: 10px">BNO</th>
-										<th>TITLE</th>
+										<th style="width: 70%">TITLE</th>
 										<th>WRITER</th>
 										<th>REGDATE</th>
-										<th style="width: 40px">VIEWCNT</th>
+										<th style="width: 60px">HIT</th>
 									</tr>
 									
 									<c:if test="${articlePage.hasNoArticles()}">
@@ -44,7 +43,7 @@
 									<c:forEach var="article" items="${articlePage.content}">
 										<tr>
 											<td>${article.article_no}</td>
-											<td><a href="read.do?no=${article.article_no}&pageNo=${articlePage.currentPage}">${article.article_title}</a></td>
+											<td><a href="read.do?articleNo=${article.article_no}&pageNo=${articlePage.currentPage}">${article.article_title}</a></td>
 											<td>${article.article_writer}</td>
 											<td><fmt:formatDate value="${article.article_regdate}" pattern="yyyy-MM-dd HH:mm"/></td>
 											<td><span class="badge bg-red">${article.article_readcount}</span></td>

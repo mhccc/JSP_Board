@@ -14,7 +14,6 @@ public class PrivacyService {
 	public static PrivacyService getInstance() {
 		return instance;
 	}
-	
 	private PrivacyService() {
 		
 	}

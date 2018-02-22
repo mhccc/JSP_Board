@@ -14,7 +14,6 @@ public class ListArticleService {
 	public static ListArticleService getInstance() {
 		return instance;
 	}
-	
 	private ListArticleService() {
 		
 	}

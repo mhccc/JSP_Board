@@ -14,8 +14,8 @@ public class MemberDAO {
 	public static MemberDAO getInstance() {
 		return instance;
 	}
-	
 	private MemberDAO() {
+		
 	}
 	
 	public void insert(Connection conn, MemberDTO member) throws SQLException {
@@ -36,7 +36,6 @@ public class MemberDAO {
 	}
 	
 	public MemberDTO selectById(Connection conn, String mem_userid) throws SQLException {
-		MemberDTO member = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
@@ -44,19 +43,24 @@ public class MemberDAO {
 			pstmt = conn.prepareStatement("select * from tbl_member where mem_userid = ?");
 			pstmt.setString(1, mem_userid);
 			rs = pstmt.executeQuery();
+			MemberDTO member = null;
 			if (rs.next()) {
-				member = new MemberDTO(
-						rs.getString("mem_userid"),
-						rs.getString("mem_password"),
-						rs.getString("mem_username"),
-						rs.getString("mem_email"),
-						rs.getDate("mem_regdate"));
+				member = convertMember(rs);
 			}
 			return member;
 		} finally {
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
 		}
+	}
+	
+	private MemberDTO convertMember(ResultSet rs) throws SQLException {
+		return new MemberDTO(
+				rs.getString("mem_userid"),
+				rs.getString("mem_password"),
+				rs.getString("mem_username"),
+				rs.getString("mem_email"),
+				rs.getDate("mem_regdate"));
 	}
 	
 }

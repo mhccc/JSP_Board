@@ -31,7 +31,6 @@ public class WriteArticleHandler implements ArticleCommandHandler {
 	}
 	
 	private String processSubmit(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println(request.getParameter("article_writer"));
 		Map<String, Boolean> errors = new HashMap<>();
 		request.setAttribute("errors", errors);
 		
@@ -42,9 +41,8 @@ public class WriteArticleHandler implements ArticleCommandHandler {
 		}
 		
 		int newArticleNo = writeService.write(wReq);
-		request.setAttribute("newArticleNo", newArticleNo);
 		
-		return "/WEB-INF/views/article/writeSuccess.jsp";
+		return "read.do?articleNo=" + newArticleNo;
 	}
 	
 }
