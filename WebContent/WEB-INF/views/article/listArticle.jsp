@@ -49,35 +49,36 @@
 											<td><span class="badge bg-red">${article.article_readcount}</span></td>
 										</tr>
 									</c:forEach>
-									
 								</table>
+								
+								<c:if test="${articlePage.hasArticles()}">
+								<div class="text-center">
+									<ul class="pagination">
+			
+										<c:if test="${articlePage.startPage > 10}">
+											<li><a href="list.do?pageNo=${articlePage.startPage - 10}">&laquo;</a></li>
+										</c:if>
+			
+										<c:forEach var="pNo" begin="${articlePage.startPage}" end="${articlePage.endPage}">
+											<li <c:out value="${articlePage.currentPage == pNo? 'class=active' : ''}"/>>
+												<a href="list.do?pageNo=${pNo}">${pNo}</a>
+											</li>
+										</c:forEach>
+			
+										<c:if test="${articlePage.endPage < articlePage.totalPages}">
+											<li><a href="list.do?pageNo=${articlePage.startPage + 10}">&raquo;</a></li>
+										</c:if>
+			
+									</ul>
+								</div>
+								</c:if>
 							</div>
 							<!-- /.box-body -->
 			
-							<c:if test="${articlePage.hasArticles()}">
-								<div class="box-footer">
-									<div class="text-center">
-										<ul class="pagination">
-				
-											<c:if test="${articlePage.startPage > 10}">
-												<li><a href="list.do?pageNo=${articlePage.startPage - 10}">&laquo;</a></li>
-											</c:if>
-				
-											<c:forEach var="pNo" begin="${articlePage.startPage}" end="${articlePage.endPage}">
-												<li <c:out value="${articlePage.currentPage == pNo? 'class=active' : ''}"/>>
-													<a href="list.do?pageNo=${pNo}">${pNo}</a>
-												</li>
-											</c:forEach>
-				
-											<c:if test="${articlePage.endPage < articlePage.totalPages}">
-												<li><a href="list.do?pageNo=${articlePage.startPage + 10}">&raquo;</a></li>
-											</c:if>
-				
-										</ul>
-									</div>
-								</div>
-								<!-- /.box-footer-->
-							</c:if>
+							<div class="box-footer clearfix">
+								<button id="btn_cancel" class="btn btn-primary pull-right" onclick="location.href='write.do'">Write</button>
+							</div>
+							<!-- /.box-footer-->
 							
 						</div>
 					</div>

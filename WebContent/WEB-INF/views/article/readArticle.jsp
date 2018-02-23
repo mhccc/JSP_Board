@@ -18,10 +18,8 @@
 	
 	    <!-- Main content -->
 	    <section class="content container-fluid">
-
 			<div class="row">
 		        <div class="col-md-12">
-		        
 		          <div class="box box-info">
 		          	<div class="box-header with-border">
 		          	  <h3 class="box-title">${article.article_title}</h3>
@@ -29,7 +27,7 @@
 		          	</div>
 		          	
 		            <div class="box-body pad">
-		              <div class="text-right"><small><div class="inline" style="margin-right:10px;">HIT : ${article.article_readcount}</div><fmt:formatDate value="${article.article_regdate}" pattern="yyyy-MM-dd HH:mm"/></small></div>
+		              <div class="text-right"><small><div class="inline" style="margin-right:10px;">Hit : ${article.article_readcount}</div><fmt:formatDate value="${article.article_regdate}" pattern="yyyy-MM-dd HH:mm"/></small></div>
 		              
 		              <div>
 		              	${article.article_content}
@@ -38,7 +36,9 @@
 		            </div>
 		            
 			        <div class="box-footer clearfix">
-		              footer
+		              <button id="btn_goList" class="btn btn-primary" onclick="location.href='list.do?pageNo=${param.pageNo}'">Go List</button>
+		              <button id="btn_delete" class="btn btn-danger pull-right" onclick="location.href='delete.do?articleNo=${article.article_no}&pageNo=${param.pageNo}'">Delete</button>
+		              <button id="btn_modify" class="btn btn-warning pull-right" onclick="location.href='modify.do?articleNo=${article.article_no}&pageNo=${param.pageNo}'" style="margin-right:5px;">Modify</button>
 		            </div>
 		          </div>
 		          <!-- /.box -->

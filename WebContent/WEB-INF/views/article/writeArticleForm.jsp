@@ -36,8 +36,8 @@
 		              	<hr>
 		              	
 			            <div class="text-center">
-			            	<input type="submit" class="btn btn-primary" value="Write">
-		          			<button id="btn_cancel" class="btn btn-warning">Cancel</button>
+			            	<input type="submit" class="btn btn-primary" value="Submit">
+		          			<button id="btn_cancel" class="btn btn-warning" onclick="location.href='list.do'">Cancel</button>
 			            </div>
 		              </form>
 		            </div>

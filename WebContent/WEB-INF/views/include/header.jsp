@@ -89,10 +89,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	              <!-- Menu Footer-->
 	              <li class="user-footer">
 	                <div class="pull-left">
-	                  <a href="privacy.do" class="btn btn-default btn-flat">Profile</a>
+	                  <a href="${pageContext.request.contextPath}/member/privacy.do" class="btn btn-default btn-flat">Profile</a>
 	                </div>
 	                <div class="pull-right">
-	                  <a href="logout.do" class="btn btn-default btn-flat">Sign out</a>
+	                  <a href="${pageContext.request.contextPath}/member/logout.do" class="btn btn-default btn-flat">Sign out</a>
 	                </div>
 	              </li>
 	            </ul>
