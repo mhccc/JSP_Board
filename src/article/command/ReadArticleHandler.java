@@ -12,19 +12,20 @@ import article.service.ReadArticleService;
 
 public class ReadArticleHandler implements ArticleCommandHandler {
 	
+	private static final String VIEW = "/WEB-INF/views/article/readArticle.jsp";
 	private ReadArticleService readService = ReadArticleService.getInstance();
 	
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		int article_no = Integer.parseInt(request.getParameter("articleNo"));
+		int articleNo = Integer.parseInt(request.getParameter("articleNo"));
 		
 		Map<String, Boolean> errors = new HashMap<>();
 		request.setAttribute("errors", errors);
 		
 		try {
-			ArticleDTO article = readService.getArticle(article_no, true);
+			ArticleDTO article = readService.getArticle(articleNo, true);
 			request.setAttribute("article", article);
-			return "/WEB-INF/views/article/readArticle.jsp";
+			return VIEW;
 		} catch (ArticleNotFoundException e) {
 			errors.put("articleNotFound", true);
 			return null;

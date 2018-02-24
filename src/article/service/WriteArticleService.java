@@ -51,7 +51,7 @@ public class WriteArticleService {
 	
 	private ArticleDTO toArticle(WriteRequest wReq) {
 		Date now = new Date();
-		return new ArticleDTO(null, wReq.getWriter(), wReq.getTitle(), now, 0, wReq.getContent());
+		return new ArticleDTO(null, wReq.getArticle_writer(), wReq.getArticle_title(), now, 0, wReq.getArticle_content());
 	}
 	
 }

@@ -136,4 +136,32 @@ public class ArticleDAO {
 		}
 	}
 	
+	public int update(Connection conn, int article_no, String modArticle_title, String modArticle_content) throws SQLException {
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement("update tbl_article set article_title = ?, article_content = ? where article_no = ?");
+			pstmt.setString(1, modArticle_title);
+			pstmt.setString(2, modArticle_content);
+			pstmt.setInt(3, article_no);
+			
+			return pstmt.executeUpdate();
+		} finally {
+			JdbcUtil.close(pstmt);
+		}
+	}
+	
+	public int delete(Connection conn, int article_no) throws SQLException {
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement("delete from tbl_article where article_no = ?");
+			pstmt.setInt(1, article_no);
+			
+			return pstmt.executeUpdate();
+		} finally {
+			JdbcUtil.close(pstmt);
+		}
+	}
+	
 }

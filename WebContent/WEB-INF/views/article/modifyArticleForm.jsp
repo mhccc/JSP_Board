@@ -8,7 +8,7 @@
 	    <section class="content-header">
 	      <h1>
 	        Board
-	        <small>Write article</small>
+	        <small>Modify article</small>
 	      </h1>
 	      <ol class="breadcrumb">
 	        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -24,20 +24,20 @@
 		        
 		          <div class="box box-info">
 		            <div class="box-body pad">
-		              <form action="write.do" method="post">
+		              <form action="modify.do?articleNo=${modReq.article_no}&pageNo=${modReq.page_no}" method="post">
 		              	<input type="hidden" name="article_writer" value="${sessionScope.authUser.mem_userid}">
 		              	<div class="form-group">
 		              		<label for="article_title">Title</label>
-							<input type="text" name="article_title" class="form-control" value="${article_title}">
+							<input type="text" name="article_title" class="form-control" value="${modReq.article_title}">
 		              	</div>
 						
-		              	<textarea id="editor1" name="article_content" rows="20" cols="80">${param.article_content}</textarea>
+		              	<textarea id="editor1" name="article_content" rows="20" cols="80">${modReq.article_content}</textarea>
 		              	
 		              	<hr>
 		              	
 			            <div class="text-center">
-			            	<input type="submit" class="btn btn-primary" value="Submit">
-		          			<button type="button" id="btn_cancel" class="btn btn-warning" onclick="location.href='list.do'">Cancel</button>
+			            	<input type="submit" class="btn btn-primary" value="Modify">
+		          			<button type="button"id="btn_cancel" class="btn btn-warning" onclick="location.href='read.do?articleNo=${modReq.article_no}&pageNo=${modReq.page_no}'">Cancel</button>
 			            </div>
 		              </form>
 		            </div>

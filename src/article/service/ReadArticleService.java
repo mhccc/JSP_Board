@@ -20,20 +20,20 @@ public class ReadArticleService {
 	
 	private ArticleDAO articleDAO = ArticleDAO.getInstance();
 	
-	public ArticleDTO getArticle(int article_no, boolean increaseReadCount) {
+	public ArticleDTO getArticle(int articleNo, boolean increaseReadCount) {
 		Connection conn = null;
 		
 		try {
 			conn = ConnectionProvider.getConnection();
 			conn.setAutoCommit(false);
 			
-			ArticleDTO article = articleDAO.selectByNo(conn, article_no);
+			ArticleDTO article = articleDAO.selectByNo(conn, articleNo);
 			if (article == null) {
 				throw new ArticleNotFoundException();
 			}
 			
 			if (increaseReadCount) {
-				articleDAO.increaseReadCount(conn, article_no);
+				articleDAO.increaseReadCount(conn, articleNo);
 			}
 			
 			conn.commit();

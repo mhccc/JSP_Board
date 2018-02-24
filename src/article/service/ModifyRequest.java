@@ -2,18 +2,38 @@ package article.service;
 
 import java.util.Map;
 
-public class WriteRequest {
+public class ModifyRequest {
 
+	private int article_no;
+	private int page_no;
 	private String article_writer;
 	private String article_title;
 	private String article_content;
 	
-	public WriteRequest(String article_writer, String article_title, String article_content) {
+	public ModifyRequest(int article_no, int page_no, String article_writer, String article_title, String article_content) {
+		this.article_no = article_no;
+		this.page_no = page_no;
 		this.article_writer = article_writer;
 		this.article_title = article_title;
 		this.article_content = article_content;
 	}
+
+	public int getArticle_no() {
+		return article_no;
+	}
 	
+	public void setArticle_no(int article_no) {
+		this.article_no = article_no;
+	}
+
+	public int getPage_no() {
+		return page_no;
+	}
+
+	public void setPage_no(int page_no) {
+		this.page_no = page_no;
+	}
+
 	public String getArticle_writer() {
 		return article_writer;
 	}
@@ -40,8 +60,8 @@ public class WriteRequest {
 
 	@Override
 	public String toString() {
-		return "WriteRequest [article_writer=" + article_writer + ", article_title=" + article_title
-				+ ", article_content=" + article_content + "]";
+		return "ModifyRequest [article_no=" + article_no + ", page_no=" + page_no + ", article_writer=" + article_writer
+				+ ", article_title=" + article_title + ", article_content=" + article_content + "]";
 	}
 
 	public void validate(Map<String, Boolean> errors) {

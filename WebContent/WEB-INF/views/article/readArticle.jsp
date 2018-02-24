@@ -37,8 +37,10 @@
 		            
 			        <div class="box-footer clearfix">
 		              <button id="btn_goList" class="btn btn-primary" onclick="location.href='list.do?pageNo=${param.pageNo}'">Go List</button>
-		              <button id="btn_delete" class="btn btn-danger pull-right" onclick="location.href='delete.do?articleNo=${article.article_no}&pageNo=${param.pageNo}'">Delete</button>
-		              <button id="btn_modify" class="btn btn-warning pull-right" onclick="location.href='modify.do?articleNo=${article.article_no}&pageNo=${param.pageNo}'" style="margin-right:5px;">Modify</button>
+		              <c:if test="${authUser.mem_userid eq article.article_writer}">
+		              	<button id="btn_delete" class="btn btn-danger pull-right" onclick="location.href='delete.do?articleNo=${article.article_no}&pageNo=${param.pageNo}'">Delete</button>
+		              	<button id="btn_modify" class="btn btn-warning pull-right" onclick="location.href='modify.do?articleNo=${article.article_no}&pageNo=${param.pageNo}'" style="margin-right:5px;">Modify</button>
+		              </c:if>
 		            </div>
 		          </div>
 		          <!-- /.box -->
