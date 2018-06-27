@@ -42,7 +42,8 @@ public class WriteArticleHandler implements ArticleCommandHandler {
 		
 		int newArticleNo = writeService.write(wReq);
 		
-		return "read.do?articleNo=" + newArticleNo;
+		response.sendRedirect("read.do?articleNo=" + newArticleNo + "&pageNo=1");
+		return null;
 	}
 	
 }
